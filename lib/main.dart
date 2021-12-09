@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
           title: Text("Flutter"),
           backgroundColor: Colors.redAccent,
         ),
-        body: Center(child: Text("Happy Coding")),
+        body: Center(child: Text("Happy Coding!")),
       ),
     );
   }
