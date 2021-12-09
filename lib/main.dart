@@ -12,6 +12,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int value = 1;
+  final List<String> operators = ["Teletalk","Grameenphone","Robi","Airtel","Banglalink"];
 
   @override
   Widget build(BuildContext context) {
@@ -120,59 +121,17 @@ class _MyAppState extends State<MyApp> {
               width: double.infinity,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                children:
-                [
-                  RadioListTile(
-                    title: Text("Teletalk"),
-                    value: 1,
-                    groupValue: 1,
-                    onChanged: (val){
-                      setState(() {
-                        value = val;
-                      });
-                    },
-                  ),
-                  RadioListTile(
-                    title: Text("Grameenphone"),
-                    value: 2,
-                    groupValue: 2,
-                    onChanged: (val){
-                      setState(() {
-                        value = val;
-                      });
-                    },
-                  ),
-                  RadioListTile(
-                    title: Text("Robi"),
-                    value: 3,
-                    groupValue: 3,
-                    onChanged: (val){
-                      setState(() {
-                        value = val;
-                      });
-                    },
-                  ),
-                  RadioListTile(
-                    title: Text("Airtel"),
-                    value: 4,
-                    groupValue: 4,
-                    onChanged: (val){
-                      setState(() {
-                        value = val;
-                      });
-                    },
-                  ),
-                  RadioListTile(
-                    title: Text("Banglalink"),
-                    value: 5,
-                    groupValue: 5,
-                    onChanged: (val){
-                      setState(() {
-                        value = val;
-                      });
-                    },
-                  ),
-                ],
+                children: operators.map((e) => RadioListTile(
+                  title: Text(e),
+                  value: e,
+                  groupValue: e,
+                  onChanged: (val){
+                    setState(() {
+                      value = val;
+                    });
+                  },
+                )).toList(),
+
               ),
             ),
           ),
