@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toast/toast.dart';
 
 void main() {
   runApp(MaterialApp(debugShowCheckedModeBanner: false, home: MyApp()));
@@ -11,8 +12,23 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int value = 1;
-  final List<String> operators = ["Teletalk","Grameenphone","Robi","Airtel","Banglalink"];
+  String value = "Teletalk";
+  List<String> operators = ["Teletalk","Grameenphone","Robi","Airtel","Banglalink"];
+  TextEditingController _mobileOperatorController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _mobileOperatorController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _mobileOperatorController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +66,7 @@ class _MyAppState extends State<MyApp> {
                   Text("Mobile Operator",style: TextStyle(color: Colors.black54,fontWeight: FontWeight.bold, fontSize: 18),),
                   SizedBox(height: 5,),
                   TextField(
+                    controller: _mobileOperatorController,
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.network_wifi,color: Colors.grey,),
                       suffixIcon: Icon(Icons.arrow_downward,color: Colors.grey,),
@@ -58,8 +75,9 @@ class _MyAppState extends State<MyApp> {
                           borderSide: new BorderSide(color: Colors.black26)
                       ),
                       filled: true,
-                      hintStyle: TextStyle(color: Colors.black),
+                      hintStyle: TextStyle(color: Colors.grey),
                       fillColor: Colors.white54,
+                      hintText: "MOBILE OPERATOR",
                     ),
                     //onTap: showSingleChoiseDialog(context),
                     onTap: () => WidgetsBinding.instance.addPostFrameCallback((_){
@@ -124,11 +142,15 @@ class _MyAppState extends State<MyApp> {
                 children: operators.map((e) => RadioListTile(
                   title: Text(e),
                   value: e,
-                  groupValue: e,
+                  groupValue: value,
                   onChanged: (val){
                     setState(() {
                       value = val;
+                      _mobileOperatorController.text = value;
+                      print("value : "+value);
+                      Navigator.of(context).pop();
                     });
+                    Toast.show("$value", context, duration: Toast.LENGTH_LONG, gravity:  Toast.BOTTOM);
                   },
                 )).toList(),
 
