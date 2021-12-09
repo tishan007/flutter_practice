@@ -58,6 +58,10 @@ class _MyAppState extends State<MyApp> {
                       hintStyle: TextStyle(color: Colors.black),
                       fillColor: Colors.white54,
                     ),
+                    //onTap: showSingleChoiseDialog(context),
+                    onTap: () => WidgetsBinding.instance.addPostFrameCallback((_){
+                      showSingleChoiseDialog(context);
+                    }),
                   ),
                   SizedBox(height: 20,),
                   Text("Mobile Operator Type",style: TextStyle(color: Colors.black54,fontWeight: FontWeight.bold, fontSize: 18),),
@@ -100,5 +104,31 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
+
+  showSingleChoiseDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Select Mobile Network Operator"),
+          content: SingleChildScrollView(
+            child: Container(
+              width: double.infinity,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  RadioListTile(
+                    title: Text("Teletalk"),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+
 }
 
