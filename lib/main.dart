@@ -11,6 +11,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int value = 1;
+
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
@@ -62,6 +64,7 @@ class _MyAppState extends State<MyApp> {
                     onTap: () => WidgetsBinding.instance.addPostFrameCallback((_){
                       showSingleChoiseDialog(context);
                     }),
+                    readOnly: true,
                   ),
                   SizedBox(height: 20,),
                   Text("Mobile Operator Type",style: TextStyle(color: Colors.black54,fontWeight: FontWeight.bold, fontSize: 18),),
@@ -106,6 +109,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   showSingleChoiseDialog(BuildContext context) {
+
     return showDialog(
       context: context,
       builder: (context) {
@@ -116,9 +120,57 @@ class _MyAppState extends State<MyApp> {
               width: double.infinity,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                children: [
+                children:
+                [
                   RadioListTile(
                     title: Text("Teletalk"),
+                    value: 1,
+                    groupValue: 1,
+                    onChanged: (val){
+                      setState(() {
+                        value = val;
+                      });
+                    },
+                  ),
+                  RadioListTile(
+                    title: Text("Grameenphone"),
+                    value: 2,
+                    groupValue: 2,
+                    onChanged: (val){
+                      setState(() {
+                        value = val;
+                      });
+                    },
+                  ),
+                  RadioListTile(
+                    title: Text("Robi"),
+                    value: 3,
+                    groupValue: 3,
+                    onChanged: (val){
+                      setState(() {
+                        value = val;
+                      });
+                    },
+                  ),
+                  RadioListTile(
+                    title: Text("Airtel"),
+                    value: 4,
+                    groupValue: 4,
+                    onChanged: (val){
+                      setState(() {
+                        value = val;
+                      });
+                    },
+                  ),
+                  RadioListTile(
+                    title: Text("Banglalink"),
+                    value: 5,
+                    groupValue: 5,
+                    onChanged: (val){
+                      setState(() {
+                        value = val;
+                      });
+                    },
                   ),
                 ],
               ),
