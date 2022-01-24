@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice/pages/popup_radiolisttile.dart';
+import 'package:flutter_practice/pages/wifi_connection.dart';
 import 'package:toast/toast.dart';
+import 'package:wifi_connection/WifiConnection.dart';
 
 void main() {
   runApp(MaterialApp(debugShowCheckedModeBanner: false, home: MyApp()));
@@ -20,14 +22,15 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        resizeToAvoidBottomPadding: false,
+        //resizeToAvoidBottomPadding: false,      //for web part it should be commented
         appBar: AppBar(
           centerTitle: true,
           title: Text("Flutter"),
           backgroundColor: Colors.redAccent,
         ),
         body: Center(
-            child: PopUpRadioListTile(),
+            //child: PopUpRadioListTile(),
+            child: WifiConnectionPage(),
         ),
       ),
     );
