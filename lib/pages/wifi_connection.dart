@@ -50,17 +50,17 @@ class _WifiConnectionPageState extends State<WifiConnectionPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('SSID: ${_wifiInfo.ssid}\n'),
-                Text('BSSID: ${_wifiInfo.bssId}\n'),
-                Text('IP: ${_wifiInfo.ipAddress}\n'),
-                Text('MAC Address: ${_wifiInfo.macAddress}\n'),
-                Text('Link Speed: ${_wifiInfo.linkSpeed}\n'),
-                Text('Signal Strength: ${_wifiInfo.signalStrength}\n'),
-                Text('Frequency: ${_wifiInfo.frequency}\n'),
-                Text('Channel: ${_wifiInfo.channel}\n'),
-                Text('Network Id: ${_wifiInfo.networkId}\n'),
-                Text('IsHiddenSSID: ${_wifiInfo.isHiddenSSid}\n'),
-                Text('Router IP: ${_wifiInfo.routerIp}\n'),
+                Text('SSID: ${_wifiInfo?.ssid}\n'),
+                Text('BSSID: ${_wifiInfo?.bssid}\n'),
+                Text('IP: ${_wifiInfo?.ipAddress}\n'),
+                Text('MAC Address: ${_wifiInfo?.macAddress}\n'),
+                Text('Link Speed: ${_wifiInfo?.linkSpeed}\n'),
+                Text('Signal Strength: ${_wifiInfo?.signalStrength}\n'),
+                Text('Frequency: ${_wifiInfo?.frequency}\n'),
+                Text('Channel: ${_wifiInfo?.channel}\n'),
+                Text('Network Id: ${_wifiInfo?.networkId}\n'),
+                Text('IsHiddenSSID: ${_wifiInfo?.isHiddenSSID}\n'),
+                Text('Router IP: ${_wifiInfo?.routerIp}\n'),
                 TextButton(
                     onPressed: () {
                       initPlatformState();
