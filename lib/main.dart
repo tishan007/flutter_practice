@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/pages/file_upload.dart';
 import 'package:flutter_practice/pages/popup_radiolisttile.dart';
 import 'package:flutter_practice/pages/wifi_connection.dart';
 import 'package:toast/toast.dart';
@@ -30,7 +31,8 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
             //child: PopUpRadioListTile(),
-            child: WifiConnectionPage(),
+            //child: WifiConnectionPage(),
+            child: FileUpload(),
         ),
       ),
     );

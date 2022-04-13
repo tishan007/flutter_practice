@@ -30,6 +30,8 @@ dependencies:
   cupertino_icons: ^1.0.1
   toast: ^0.1.5
   wifi_connection: ^0.0.4
+  file_picker: ^4.5.1
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:
