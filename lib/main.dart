@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_practice/pages/file_upload.dart';
 import 'package:flutter_practice/pages/popup_radiolisttile.dart';
 import 'package:flutter_practice/pages/wifi_connection.dart';
+import 'package:system_settings/system_settings.dart';
 import 'package:toast/toast.dart';
 import 'package:wifi_connection/WifiConnection.dart';
 
@@ -64,6 +65,31 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _connectionStatus = result;
     });
+
+    if((_connectionStatus.toString().contains("none"))) {
+      return showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (_) => new AlertDialog(
+            content: Text("Please check your internet"),
+            actions: <Widget>[
+              FlatButton(
+                child: Text('Go to Settings'),
+                onPressed: () {
+                  SystemSettings.system();
+                },
+              ),
+              FlatButton(
+                child: Text('Close me!'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          )
+      );
+    }
+
   }
 
   @override
