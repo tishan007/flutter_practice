@@ -73,13 +73,13 @@ class _MyAppState extends State<MyApp> {
           builder: (_) => new AlertDialog(
             content: Text("Please check your internet"),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 child: Text('Go to Settings'),
                 onPressed: () {
                   SystemSettings.system();
                 },
               ),
-              FlatButton(
+              TextButton(
                 child: Text('Close me!'),
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -105,9 +105,9 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
             //child: PopUpRadioListTile(),
-            //child: WifiConnectionPage(),
+            child: WifiConnectionPage(),
             //child: FileUpload(),
-            child: Text('Connection Status: ${_connectionStatus.toString()}'),
+            //child: Text('Connection Status: ${_connectionStatus.toString()}'),
         ),
       ),
     );
