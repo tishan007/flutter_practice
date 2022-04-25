@@ -26,6 +26,14 @@ class _MyAppState extends State<MyApp> {
   final Connectivity _connectivity = Connectivity();
   StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
+  var _currentIndex = 0;
+  final pages = [
+    WifiConnectionPage(),
+    PopUpRadioListTile(),
+    FileUpload(),
+    WifiConnectionPage(),
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -105,11 +113,49 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
             //child: PopUpRadioListTile(),
-            child: WifiConnectionPage(),
+            child: (_currentIndex==0) ? WifiConnectionPage() : pages[_currentIndex],
             //child: FileUpload(),
             //child: Text('Connection Status: ${_connectionStatus.toString()}'),
         ),
+        bottomNavigationBar: _buildBottomNavigationBar(),
       ),
+    );
+  }
+
+  _buildBottomNavigationBar() {
+    return BottomNavigationBar(
+      currentIndex: _currentIndex,
+      type: BottomNavigationBarType.fixed,
+      selectedItemColor: Colors.blue,
+      selectedFontSize: 12,
+      unselectedFontSize: 12,
+      //selectedLabelStyle: Utils.bottomBarTextStyle,
+      //unselectedLabelStyle: Utils.bottomBarTextStyle,
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.radio),
+          label: 'Radio List Tile',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.file_upload),
+          label: 'File Upload',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.wifi),
+          label: 'Wifi',
+        ),
+
+      ],
+      onTap: (index) {
+        setState(() {
+          _currentIndex = index;
+        });
+      },
+
     );
   }
 
